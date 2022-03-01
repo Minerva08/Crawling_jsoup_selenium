@@ -12,19 +12,24 @@ public class Selenium_FAQ {
 	private static String id = "webdriver.chrome.driver";
 	private static String path = "D:/chromedriver.exe";
 	
-	public static void main(String[] args) throws NoSuchElementException{
+	public static void main(String[] args) {
 		System.setProperty(id, path);
 		
 		WebDriver driver = new ChromeDriver();
 		
-		try {
+		
 			for(int j=1;j<=7;j++) {
 				String url = "https://kream.co.kr/faq?list=true&page="+j;
 				driver.get(url);
+				WebElement click;
 				for(int i=1;i<=10;i++) {
-					WebElement click = driver.findElement(By.xpath("//*[@id=\"__layout\"]/div/div[1]/div[2]/div[2]/div/ul/li["+i+"]/div/div[1]"));
-					click.click();
-					
+					try {
+						click = driver.findElement(By.xpath("//*[@id=\"__layout\"]/div/div[1]/div[2]/div[2]/div/ul/li["+i+"]/div/div[1]"));
+						click.click();
+					}catch(NoSuchElementException ex){
+						System.out.println("게시글 없음");
+						continue;
+					}
 					System.out.println(click.getText());
 					System.out.println();
 					
@@ -61,9 +66,7 @@ public class Selenium_FAQ {
 				
 			}
 			
-		} catch (Exception e) {
-			System.out.println(e);
-		}
+		
 	}
 
 

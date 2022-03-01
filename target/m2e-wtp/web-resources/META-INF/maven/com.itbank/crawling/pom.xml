@@ -205,6 +205,8 @@
 		    <version>1.18.0</version> <scope>provided</scope>
 		</dependency>
 		
+		
+		<!-- 셀레늄 라이브러리  -->
 		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-server -->
 		<dependency>
 		    <groupId>org.seleniumhq.selenium</groupId>
